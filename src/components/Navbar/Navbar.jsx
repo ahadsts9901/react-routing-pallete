@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
-import { List } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
+import { List, XLg } from "react-bootstrap-icons";
 
 const Navbar = () => {
   const routes = [
@@ -23,22 +23,38 @@ const Navbar = () => {
     },
   ];
 
-  const navigate = useNavigate();
+  const [showNav, setShowNav] = useState(true);
 
   return (
-    <div className="navBar">
-      <h2>FakeStore</h2>
-      <List className="burgerIcon" />
-      <ul>
-        {routes.map((route, index) => {
-          return (
-            <Link to={`${route.path}`}>
-              <li key={index}>{route.element}</li>
-            </Link>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <div className="navBar">
+        <h2>FakeStore</h2>
+        <List
+          className="burgerIcon"
+          onClick={() => {
+            setShowNav(!showNav);
+          }}
+        />
+
+        <ul style={{ display: `${showNav ? "flex" : "none"}` }}>
+          <XLg
+            className="navCross"
+            onClick={() => {
+              setShowNav(!showNav);
+            }}
+          />
+          {routes.map((route, index) => {
+            return (
+              <>
+                <Link to={`${route.path}`}>
+                  <li key={index}>{route.element}</li>
+                </Link>
+              </>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 

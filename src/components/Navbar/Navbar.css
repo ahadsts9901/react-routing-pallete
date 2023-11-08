@@ -12,8 +12,8 @@
 .navBar > ul {
   padding: 0;
   display: flex;
-  gap: 1em;
-  padding-right: 3em;
+  gap: 2em;
+  padding-right: 10em;
 }
 
 .navBar > ul li {
@@ -24,15 +24,43 @@
 .burgerIcon {
   color: #fff;
   display: none;
+  font-size: 2em;
+  padding-right: 1.5em;
 }
 
-@media (max-width: 490px) {
+.navCross {
+  font-size: 1.5em;
+  align-self: flex-end;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .navBar > ul {
+    padding-right: 3em;
+  }
+}
+
+@media (max-width: 512px) {
   .navBar > ul {
     flex-direction: column;
     display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    height: fit-content;
+    background-color: #c34568;
+    padding: 2em;
+    padding-top: 0.7em;
+    padding-right: 2em;
   }
 
   .burgerIcon {
     display: block;
   }
+
+  .navCross {
+    display: block;
+  }
+  
 }
