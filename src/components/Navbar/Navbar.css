@@ -1,0 +1,38 @@
+.navBar {
+  background-color: #c34568;
+  color: #fff;
+  width: 100%;
+  height: fit-content;
+  padding-left: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBar > ul {
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  padding-right: 3em;
+}
+
+.navBar > ul li {
+  color: #fff;
+  list-style-type: none;
+}
+
+.burgerIcon {
+  color: #fff;
+  display: none;
+}
+
+@media (max-width: 490px) {
+  .navBar > ul {
+    flex-direction: column;
+    display: none;
+  }
+
+  .burgerIcon {
+    display: block;
+  }
+}
